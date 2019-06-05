@@ -1,15 +1,15 @@
 package com.liuxiaozhu.testshader;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.LinearGradient;
 import android.graphics.Matrix;
 import android.graphics.Shader;
-import android.support.annotation.Nullable;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatTextView;
 
 /**
  * Author：Created by liuxiaozhu on 2018/1/19.
@@ -17,7 +17,7 @@ import android.widget.TextView;
  * 跑马灯文字
  */
 
-public class LinearGradientTextView extends TextView {
+public class LinearGradientTextView extends AppCompatTextView {
     private TextPaint mPaint;
     private LinearGradient mLinearGradient;
     private Matrix mMatrix;

@@ -11,16 +11,14 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.RadialGradient;
-import android.graphics.Rect;
-import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.SweepGradient;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.Nullable;
 
 /**
  * Author：Created by liuxiaozhu on 2018/1/19.

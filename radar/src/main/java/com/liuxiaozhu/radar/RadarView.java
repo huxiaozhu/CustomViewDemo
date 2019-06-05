@@ -6,9 +6,9 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.SweepGradient;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.Nullable;
 
 /**
  * Author：Created by liuxiaozhu on 2018/1/19.
