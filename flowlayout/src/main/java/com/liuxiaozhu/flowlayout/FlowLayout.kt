@@ -21,8 +21,8 @@ class FlowLayout(context: Context, attrs: AttributeSet) : ViewGroup(context, att
     private val mLineHeights = ArrayList<Int>()
 
 
-    override fun generateLayoutParams(attrs: AttributeSet): ViewGroup.LayoutParams {
-        return ViewGroup.MarginLayoutParams(context, attrs)
+    override fun generateLayoutParams(attrs: AttributeSet): LayoutParams {
+        return MarginLayoutParams(context, attrs)
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -33,18 +33,18 @@ class FlowLayout(context: Context, attrs: AttributeSet) : ViewGroup(context, att
         mLineHeights.clear()
 
         //获取父容器的测量模式
-        val iWidthMode = View.MeasureSpec.getMode(widthMeasureSpec)
-        val iHeightMode = View.MeasureSpec.getMode(heightMeasureSpec)
+        val iWidthMode = MeasureSpec.getMode(widthMeasureSpec)
+        val iHeightMode = MeasureSpec.getMode(heightMeasureSpec)
         //获取父容器的宽高
-        val iWidthSpecSize = View.MeasureSpec.getSize(widthMeasureSpec)
-        val iHeightSpecSize = View.MeasureSpec.getMode(heightMeasureSpec)
+        val iWidthSpecSize = MeasureSpec.getSize(widthMeasureSpec)
+        val iHeightSpecSize = MeasureSpec.getMode(heightMeasureSpec)
         //记录行宽度和高度
         var measuredWidth = 0
         var measuredHeight = 0
         //当前行的宽高
         var iCurLineW = 0
         var iCurLineH = 0
-        if (iWidthMode == View.MeasureSpec.EXACTLY && iHeightMode == View.MeasureSpec.EXACTLY) {
+        if (iWidthMode == MeasureSpec.EXACTLY && iHeightMode == MeasureSpec.EXACTLY) {
             measuredWidth = iWidthSpecSize
             measuredHeight = iHeightSpecSize
         } else {
@@ -56,7 +56,7 @@ class FlowLayout(context: Context, attrs: AttributeSet) : ViewGroup(context, att
             for (i in 0 until childCount) {
                 val childView = getChildAt(i)
                 childView.measure(widthMeasureSpec, heightMeasureSpec)
-                val layoutParams = childView.layoutParams as ViewGroup.MarginLayoutParams
+                val layoutParams = childView.layoutParams as MarginLayoutParams
                 iChildWidth = (childView.measuredWidth + layoutParams.leftMargin
                         + layoutParams.rightMargin)
                 iChildHeight = (childView.measuredHeight + layoutParams.topMargin
@@ -110,7 +110,7 @@ class FlowLayout(context: Context, attrs: AttributeSet) : ViewGroup(context, att
             val viewList = mViewLinesList[i]
             for (j in viewList.indices) {
                 val childView = viewList[j]
-                val layoutParams = childView.layoutParams as ViewGroup.MarginLayoutParams
+                val layoutParams = childView.layoutParams as MarginLayoutParams
                 left = curLeft + layoutParams.leftMargin
                 top = curTop + layoutParams.topMargin
                 right = left + childView.measuredWidth
