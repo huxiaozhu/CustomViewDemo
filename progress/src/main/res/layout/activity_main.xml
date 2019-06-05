@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.liuxiaozhu.circularprogressbar.MainActivity">
+
+    <!--动态改变style可以调整进度条的样式
+    STOKEN：环形进度条
+    FILL：扇形进度条
+    -->
+    <com.liuxiaozhu.circularprogressbar.CircularProgressbarView
+        android:id="@+id/progressbar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        app:roundBackgroundColor="@color/colorPrimaryDark"
+        app:roundProgressColor="#FF0000"
+        app:roundWidth="15dp"
+        app:style="FILL"
+        app:textColor="#000000"
+        app:textSize="20sp" />
+</RelativeLayout>

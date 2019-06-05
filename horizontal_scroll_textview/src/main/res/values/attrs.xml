@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HorizontalScrollTextView">
+        <!--进度条颜色-->
+        <attr name="proColor" format="color" />
+        <!--进度条背景色-->
+        <attr name="probackgroundColor" format="color" />
+        <!--进度条宽度-->
+        <attr name="proWidth" format="dimension" />
+        <!--进度条背景宽度-->
+        <attr name="proBackgroundWidth" format="dimension" />
+    </declare-styleable>
+</resources>

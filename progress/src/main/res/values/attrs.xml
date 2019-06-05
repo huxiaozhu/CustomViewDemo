@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircularProgressbarView">
+        <!--圆形进度条的颜色-->
+        <attr name="roundProgressColor" format="color"></attr>
+        <!--圆形背景颜色-->
+        <attr name="roundBackgroundColor" format="color"></attr>
+        <!--进度条的宽度-->
+        <attr name="roundWidth" format="dimension"></attr>
+        <!--字体大小-->
+        <attr name="textSize" format="dimension"></attr>
+        <!--字体颜色-->
+        <attr name="textColor" format="color"></attr>
+        <!--进度的最大值-->
+        <attr name="max" format="integer"></attr>
+        <!--是否显示-->
+        <attr name="textShow" format="boolean"></attr>
+        <attr name="style">
+            <!--圆形进度条-->
+            <enum name="STOKEN" value="0" />
+            <!--扇形进度条-->
+            <enum name="FILL" value="1" />
+        </attr>
+    </declare-styleable>
+</resources>
