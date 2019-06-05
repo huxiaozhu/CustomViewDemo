@@ -29,13 +29,17 @@ public class FlowLayout extends ViewGroup {
 
     @Override
     public LayoutParams generateLayoutParams(AttributeSet attrs) {
-        return new MarginLayoutParams(getContext(),attrs);
+        return new MarginLayoutParams(getContext(), attrs);
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         Log.e(TAG, "onMeasure");
+
+        mViewLinesList.clear();
+        mLineHeights.clear();
+
         //获取父容器的测量模式
         int iWidthMode = MeasureSpec.getMode(widthMeasureSpec);
         int iHeightMode = MeasureSpec.getMode(heightMeasureSpec);
@@ -59,12 +63,13 @@ public class FlowLayout extends ViewGroup {
             List<View> viewList = new ArrayList<>();
             for (int i = 0; i < childCount; i++) {
                 View childView = getChildAt(i);
-                measureChild(childView, widthMeasureSpec, heightMeasureSpec);
+                childView.measure(widthMeasureSpec, heightMeasureSpec);
                 MarginLayoutParams layoutParams = (MarginLayoutParams) childView.getLayoutParams();
                 iChildWidth = childView.getMeasuredWidth() + layoutParams.leftMargin
                         + layoutParams.rightMargin;
                 iChildHeight = childView.getMeasuredHeight() + layoutParams.topMargin
                         + layoutParams.bottomMargin;
+
                 if (iCurLineW + iChildWidth > iWidthSpecSize) {
                     //换行,记录新的一行的信息
                     measuredWidth = Math.max(measuredWidth, iCurLineW);
@@ -85,11 +90,10 @@ public class FlowLayout extends ViewGroup {
                     iCurLineH = Math.max(iCurLineH, iChildHeight);
                     viewList.add(childView);
                 }
-                if(i == childCount - 1){
+                if (i == childCount - 1) {
                     //1、记录当前行的最大宽度，高度累加
-                    measuredWidth = Math.max(measuredWidth,iCurLineW);
+                    measuredWidth = Math.max(measuredWidth, iCurLineW);
                     measuredHeight += iCurLineH;
-
                     //2、将当前行的viewList添加至总的mViewsList，将行高添加至总的行高List
                     mViewLinesList.add(viewList);
                     mLineHeights.add(iCurLineH);
@@ -110,8 +114,7 @@ public class FlowLayout extends ViewGroup {
         int lineCount = mViewLinesList.size();
         for (int i = 0; i < lineCount; i++) {
             List<View> viewList = mViewLinesList.get(i);
-            int lineViewSize = viewList.size();
-            for (int j = 0; j < lineViewSize; j++) {
+            for (int j = 0; j < viewList.size(); j++) {
                 View childView = viewList.get(j);
                 MarginLayoutParams layoutParams = (MarginLayoutParams) childView.getLayoutParams();
                 left = curLeft + layoutParams.leftMargin;
@@ -130,18 +133,19 @@ public class FlowLayout extends ViewGroup {
         mLineHeights.clear();
     }
 
-    public interface OnItemClickListener{
-        void onItemClick (View v, int index);
+    public interface OnItemClickListener {
+        void onItemClick(View v, int index);
     }
 
     /**
      * 给View设置监听
+     *
      * @param listener
      */
-    public void setOnItemClickListener(final OnItemClickListener listener){
+    public void setOnItemClickListener(final OnItemClickListener listener) {
 
         int childCount = getChildCount();
-        for(int i = 0 ; i < childCount ; i++){
+        for (int i = 0; i < childCount; i++) {
             View childView = getChildAt(i);
             final int finalI = i;
             childView.setOnClickListener(new OnClickListener() {
