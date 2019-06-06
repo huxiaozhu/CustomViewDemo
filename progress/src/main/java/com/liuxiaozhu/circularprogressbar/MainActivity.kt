@@ -3,27 +3,24 @@ package com.liuxiaozhu.circularprogressbar
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-
-    private var mProgressbar: CircularProgressbarView? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        mProgressbar = findViewById(R.id.progressbar)
         setData()
     }
 
     private fun setData() {
         var progress = 0
-        mProgressbar!!.setOnClickListener {
+        button.setOnClickListener {
             Thread(Runnable {
                 while (progress <= 100) {
                     progress += 2
-                    mProgressbar!!.setProgress(progress)
-
+                    progressbar.setProgress(progress)
+                    progressbar1.setProgress(progress)
                     try {
                         Thread.sleep(100)
                     } catch (e: InterruptedException) {

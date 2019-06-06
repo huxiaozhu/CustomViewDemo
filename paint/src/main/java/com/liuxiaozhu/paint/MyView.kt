@@ -66,9 +66,6 @@ class MyView : View {
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        //        Paint mPaint = new Paint();
-        //        mPaint.setMaskFilter()
-
 
         //color 0xFF6BB7ED
         /**
@@ -319,16 +316,16 @@ class MyView : View {
     private fun drawSubpixelText(canvas: Canvas) {
 
         val paint = Paint()
-        paint.color = Color.GREEN
-        val text = "动脑学院高级UI"
+        paint.color = Color.RED
+        val text = "是否启动亚像素"
         paint.textSize = 100f
 
         paint.isSubpixelText = false
-        canvas.drawText(text, 0f, 200f, paint)
+        canvas.drawText(text, 0f, 100f, paint)
 
-        canvas.translate(0f, 300f)
+        canvas.translate(0f, 100f)
         paint.isSubpixelText = true
-        canvas.drawText(text, 0f, 200f, paint)
+        canvas.drawText(text, 0f, 100f, paint)
     }
 
 }
