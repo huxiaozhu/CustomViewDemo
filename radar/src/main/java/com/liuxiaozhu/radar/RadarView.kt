@@ -1,5 +1,6 @@
 package com.liuxiaozhu.radar
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -19,15 +20,11 @@ class RadarView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
     private val mSweepGradient: SweepGradient
     private val color = intArrayOf(-0xff0100, -0x7fff0100, 0x0000ff00)
     private var degress: Float = 0F
-    private val mPaint: Paint get() {
-        val mPaint = Paint()
-        mPaint.isAntiAlias = true
-        return mPaint
-    }
+    private val mPaint: Paint = Paint()
     private val mLinsPaint: Paint
 
     init {
-
+        mPaint.isAntiAlias = true
         mSweepGradient = SweepGradient(300f, 300f, color, null)
         mLinsPaint = Paint()
         mLinsPaint.strokeWidth = 5f
@@ -36,6 +33,7 @@ class RadarView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
     }
 
 
+    @SuppressLint("DrawAllocation")
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         canvas.drawColor(Color.WHITE)
