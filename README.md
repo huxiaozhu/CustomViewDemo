@@ -8,8 +8,8 @@
 + moudle主要是shader的使用。
 
 ## xfromode  
-+ xfromode使用
-
++ xfromode使用， 参考google官网[PorterDuff.Mode ](https://developer.android.google.cn/reference/android/graphics/PorterDuff.Mode.html)  
+![PorterDuff.Mode ](https://github.com/huxiaozhu/CustomViewDemo/blob/master/file/xfromode/xfromode.png)
 ## flowlayout  
 + 根据子view内容进行适配  
 
