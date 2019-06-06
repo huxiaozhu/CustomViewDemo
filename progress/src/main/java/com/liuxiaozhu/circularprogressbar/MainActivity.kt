@@ -14,8 +14,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setData() {
-        var progress = 0
+        var progress = 100
         button.setOnClickListener {
+            if (progress < 100) return@setOnClickListener
+            progress = 0
             Thread(Runnable {
                 while (progress <= 100) {
                     progress += 2
