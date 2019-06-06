@@ -2,10 +2,10 @@
 本demo主要是关于Canvas、paint、shader、path以及Xfromode等绘制类的使用以及自定义View的一些demo
 
 ## paint
-+ paint主要是paint的使用方式，demo涉及大部分paint的API.  
++ paint主要是paint的使用方式，demo涉及大部分[Paint](https://developer.android.google.cn/reference/android/graphics/Paint?hl=en)的API.  
 
 ## shader  
-+ moudle主要是shader的使用。
++ moudle主要是[Shader](https://developer.android.google.cn/reference/android/graphics/Shader?hl=en)的使用。
 
 ## xfromode  
 + xfromode使用， 参考google官网[PorterDuff.Mode ](https://developer.android.google.cn/reference/android/graphics/PorterDuff.Mode.html)    
